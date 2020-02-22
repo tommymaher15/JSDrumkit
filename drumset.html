@@ -60,15 +60,23 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 </div>
-<script>    
+</div>
+<script>   
+
+ /* The goal of this project is to create create a file that plays the audio files 
+ * upon pressing of the corresponding keys. it uses event listeners and query selectors to do this. 
+ * Will improve readability and comments to understand the code better. 
+ */
+
 function removeTransition(e) {
     if (e.propertyName !== 'transform') return;
     e.target.classList.remove('playing');
   }
-
+ // 
   function playSound(e) {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    //  the audio can be played upon multiple keydown events 
     if (!audio) return;
 
     key.classList.add('playing');
